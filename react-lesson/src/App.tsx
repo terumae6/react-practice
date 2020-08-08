@@ -1,7 +1,7 @@
-import React from 'react';
-import { Child1, Child2 } from './components/Child'
-import './App.css';
+// import { Child1, Child2 } from './components/Child'
+// import './App.css';
 
+// 配列の定義
 // type array = {
 //   id: number
 //   title: string
@@ -18,6 +18,7 @@ import './App.css';
 //   }
 // ]
 
+// propsを使って値を渡す、別ファイルにしてpropsを渡す
 // type Props = {
 //   number: string
 //   children: React.ReactNode
@@ -38,14 +39,29 @@ import './App.css';
 //   )
 // }
 
-const App2: React.FC = () => {
+// const App2: React.FC = () => {
+//   return (
+//     <div>
+//       <Child1 />
+//       <Child2 />
+//     </div>
+//   )
+// }
+
+import React, { useState } from 'react'
+
+const App: React.FC = () => {
+  const [ count, setCount ] = useState<number>(0)
   return (
-    <div>
-      <Child1 />
-      <Child2 />
+    <div className='App'>
+      <div>{ count }</div>
+      <div>
+        <button onClick={ () => setCount(count+1)}>+1</button>
+        <button onClick={ () => setCount(count-1)}>-1</button>
+      </div>
     </div>
   )
 }
 
-// export default App
-export default App2
+export default App
+// export default App2
