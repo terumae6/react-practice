@@ -48,16 +48,39 @@
 //   )
 // }
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
+
+/* MEMO
+React hooks
+useCallback/useMemoって？
+hooksは基本的にdependencyList(deps)と呼ばれるものを配列とした引数に取り、その値が変わった時に値が更新されるようになっている
+useMemoは計算した結果を保持するための関数
+useCallbackは不要に新しく関数インスタンスを作成することを抑制することによって不要な再描画を減らしてくれる
+
+useMemo
+疑わしきものは大体useMemo使っておけばOK
+useCallback
+子に関数の参照を渡す場合はuseCallback使っておくのが無難
+
+*/
 
 const App: React.FC = () => {
   const [ count, setCount ] = useState<number>(0)
+
+  const handleIncrement = useCallback(() => {
+    setCount(prev => prev + 1)
+  }, [])
+
+  const handleDecrement = useCallback(() => {
+    setCount(prev => prev - 1)
+  }, [])
+
   return (
     <div className='App'>
       <div>{ count }</div>
       <div>
-        <button onClick={ () => setCount(count+1)}>+1</button>
-        <button onClick={ () => setCount(count-1)}>-1</button>
+        <button onClick={handleIncrement}>+1</button>
+        <button onClick={handleDecrement}>-1</button>
       </div>
     </div>
   )
