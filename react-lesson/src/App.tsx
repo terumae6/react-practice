@@ -1,10 +1,11 @@
 import React from 'react';
+import { Child1, Child2 } from './components/Child'
 import './App.css';
 
-type array = {
-  id: number
-  title: string
-}
+// type array = {
+//   id: number
+//   title: string
+// }
 
 // const items: array[] = [
 //   {
@@ -17,22 +18,34 @@ type array = {
 //   }
 // ]
 
-type Props = {
-  message: string
-}
+// type Props = {
+//   number: string
+//   children: React.ReactNode
+// }
 
-const Child: React.FC<Props> = props => {
-  return (
-    <p>{ props.message }</p>
-  )
-}
+// const Child: React.FC<Props> = ({ number, children }) => {
+//   return (
+//   <p>{ number }の{ children }</p>
+//   )
+// }
 
-const App: React.FC = () => {
+// const App: React.FC = () => {
+//   return (
+//     <div className='App'>
+//       <Child number='1'>子のコンポーネントに渡す</Child>
+//       <Child number='2'>子のコンポーネントに渡す</Child>
+//     </div>
+//   )
+// }
+
+const App2: React.FC = () => {
   return (
-    <div className='App'>
-      <Child message='子コンポーネントに渡す' />
+    <div>
+      <Child1 />
+      <Child2 />
     </div>
   )
 }
 
-export default App;
+// export default App
+export default App2
