@@ -64,10 +64,6 @@ useCallback
 
 */
 
-// hoge
-// hoge
-// hoge
-// hoge
 
 const App: React.FC = () => {
   const [count, setCount] = useState<number>(0)
